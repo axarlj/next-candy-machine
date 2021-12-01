@@ -65,10 +65,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>next-candy-machine</title>
+        <title>Mint Gumballz</title>
         <meta
-          name="description"
-          content="Simplified NextJs with typescript example app integrated with Metaplex's Candy Machine"
+          name="Gumballz"
+          content="Mint Gumballz on the Solana Network."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -76,11 +76,11 @@ export default function Home() {
       <div className="flex flex-col items-center min-h-screen mx-6">
         <Toaster />
         <div className="flex items-center justify-between w-full mt-3">
-          <h1 className="text-2xl font-bold">next-candy-machine</h1>
+          <h1 className="text-2xl font-bold"></h1>
           <div className="flex items-center">
             {connected && (
               <div className="flex items-end mr-2">
-                <p className="text-xs text-gray-400">balance</p>
+                <p className="text-xs text-gray-400"></p>
                 <p className="mx-1 font-bold leading-none">
                   {balance.toFixed(2)}
                 </p>
@@ -98,7 +98,9 @@ export default function Home() {
           </div>
         </div>
         {connected && (
-          <p className="mr-auto text-sm">
+          <p className="mr-auto text-sm font-bold leading-none text-transparent bg-clip-text" style={{
+            backgroundImage: `linear-gradient(to bottom right, #00FFA3, #03E1FF, #DC1FFF)`,
+          }}>
             <span className="font-bold">Available/Minted/Total:</span>{" "}
             {nftsData.itemsRemaining}/{nftsData.itemsRedeemed}/
             {nftsData.itemsAvailable}
@@ -114,19 +116,16 @@ export default function Home() {
                   ) : (
                     <>
                       <div className="flex flex-col w-1/2">
-                        <h1 className="mb-10 text-3xl font-bold">Mint One</h1>
+                        <h1 className="mb-10 text-3xl font-bold"></h1>
                         <button
                           onClick={startMint}
                           disabled={isMinting}
-                          className="px-4 py-2 mx-auto font-bold text-white transition-opacity rounded-lg hover:opacity-70 bg-gradient-to-br from-green-300 via-blue-500 to-purple-600"
+                          className="px-4 py-2 mx-auto font-bold buttonPosition text-white transition-opacity rounded-lg hover:opacity-70 bg-gradient-to-br from-green-300 via-blue-500 to-purple-600"
                         >
-                          {isMinting ? "loading" : "mint 1"}
+                          {isMinting ? "loading" : "Mint"}
                         </button>
                       </div>
-                      <div className="flex flex-col w-1/2">
-                        <h1 className="mb-10 text-3xl font-bold">Mint Many</h1>
-                        <MintMany />
-                      </div>
+                      
                     </>
                   )}
                 </>
@@ -139,16 +138,8 @@ export default function Home() {
               )}
             </>
           ) : (
-            <p>connect wallet to mint</p>
+            <p></p>
           )}
-        </div>
-        <div className="flex flex-col w-full">
-          <h2 className="text-2xl font-bold">My NFTs</h2>
-          <div className="flex mt-3 gap-x-2">
-            {(nfts as any).map((nft: any, i: number) => {
-              return <AnNFT key={i} nft={nft} />;
-            })}
-          </div>
         </div>
       </div>
     </>

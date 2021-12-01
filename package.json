@@ -2,6 +2,7 @@
   "license": "MIT",
   "name": "next-candy-machine",
   "version": "0.1.0",
+  "homepage": "mint.gumballz.io",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
